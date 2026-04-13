@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Baca LK Saham — Pixel Mart</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --pink: #FF2D6B;
+  --yellow: #E8C800;
+  --cyan: #00C8E0;
+  --black: #111111;
+  --white: #FFFFFF;
+  --bg: #F7F4EE;
+  --bg2: #EEEAE0;
+  --muted: #6B6560;
+  --border: #E0DDD5;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--black);
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+.topbar-inner {
+  display: flex; white-space: nowrap;
+  animation: scroll-l 14s linear infinite;
+}
+.tb-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px; color: var(--white);
+  padding: 0 28px; letter-spacing: 2px;
+}
+.tb-sep { color: var(--pink); }
+@keyframes scroll-l { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── NAV ── */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px; letter-spacing: 1px;
+  color: var(--black);
+}
+.nav-logo span { color: var(--pink); }
+.nav-cta {
+  background: var(--pink); color: var(--white);
+  border: none; padding: 10px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  border-radius: 6px; cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+.nav-cta:hover { transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 86vh;
+  position: relative; overflow: hidden;
+}
+.hero-left {
+  padding: 80px 48px 80px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--bg);
+  position: relative;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--black); color: var(--yellow);
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  padding: 6px 16px; border-radius: 100px;
+  text-transform: uppercase; margin-bottom: 28px;
+  width: fit-content;
+}
+.hero-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--pink); }
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.95; letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.hero-title .hl { color: var(--pink); }
+.hero-sub {
+  font-size: 16px; color: var(--muted);
+  line-height: 1.7; max-width: 440px;
+  margin-bottom: 36px;
+}
+.hero-badges {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.badge {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 100px; padding: 6px 14px;
+  font-size: 13px; font-weight: 500;
+}
+.badge-dot { width:8px; height:8px; border-radius:50%; }
+.hero-price-row {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 20px;
+}
+.price-main {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px; color: var(--pink); letter-spacing: -1px;
+}
+.price-note { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.btn-buy {
+  display: inline-block;
+  background: var(--pink); color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  padding: 18px 48px; border-radius: 8px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  letter-spacing: 0.3px;
+}
+.btn-buy:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,45,107,0.3); }
+
+/* ── HERO RIGHT ── */
+.hero-right {
+  background: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 48px;
+  position: relative; overflow: hidden;
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.hero-right::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; bottom:0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size: 48px 48px;
+}
+.book-mockup {
+  width: 320px;
+  background: #1A1A1A;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative; z-index: 2;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.6),
+              -4px 0 0 #FF2D6B;
+  transform: perspective(800px) rotateY(-8deg);
+  transition: transform 0.4s ease;
+}
+.book-mockup:hover { transform: perspective(800px) rotateY(-2deg) translateY(-4px); }
+.book-header {
+  background: var(--pink); padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.book-brand { font-family:'Bebas Neue',sans-serif; font-size:16px; color:white; letter-spacing:2px; }
+.book-pages { font-size:11px; color:rgba(255,255,255,0.7); font-weight:500; }
+.book-body { padding: 24px 20px; }
+.book-title-sm {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:38px; line-height:1; color:white;
+  margin-bottom: 6px;
+}
+.book-title-sm span { color:var(--pink); }
+.book-divider { width:80px; height:3px; background:var(--pink); margin:16px 0; }
+.book-lines { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+.book-line {
+  height: 8px; border-radius: 4px; background: #2a2a2a;
+}
+.book-mini-table { margin-bottom: 16px; }
+.bmt-head {
+  background: var(--pink); padding: 6px 10px;
+  font-size:10px; color:white; font-weight:700; letter-spacing:1px;
+  border-radius:4px 4px 0 0;
+}
+.bmt-row {
+  display:flex; justify-content:space-between;
+  padding:6px 10px; border-bottom:1px solid #2a2a2a;
+  font-size:10px; color:#888;
+}
+.bmt-row:last-child { border-bottom:none; }
+.bmt-val { color:var(--pink); font-weight:700; font-family:'DM Mono',monospace; }
+.book-tag {
+  display:inline-block; background:rgba(255,45,107,0.15);
+  border:1px solid rgba(255,45,107,0.3);
+  color:var(--pink); font-size:11px; font-weight:700;
+  padding:4px 12px; border-radius:100px; letter-spacing:1px;
+}
+.book-footer {
+  background:#0d0d0d; padding:12px 20px;
+  font-size:11px; color:#444; font-family:'DM Mono',monospace;
+}
+
+/* stats floating */
+.stat-float {
+  position:absolute; z-index:3;
+  background:var(--white); border-radius:10px;
+  padding:12px 16px; box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+.sf-val { font-family:'Bebas Neue',sans-serif; font-size:28px; }
+.sf-lbl { font-size:10px; color:var(--muted); font-weight:500; letter-spacing:1px; }
+.sf1 { top:15%; right:6%; animation: float1 3s ease-in-out infinite; }
+.sf2 { bottom:18%; right:4%; animation: float1 3s ease-in-out infinite 1s; }
+.sf3 { top:48%; left:4%; animation: float1 3s ease-in-out infinite 0.5s; }
+@keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+/* ── SECTION ── */
+.section { padding: 80px 64px; }
+.section-label {
+  font-size:11px; font-weight:700; letter-spacing:3px;
+  color:var(--pink); text-transform:uppercase; margin-bottom:12px;
+}
+.section-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,5vw,56px); line-height:1; letter-spacing:-0.5px;
+  margin-bottom:40px;
+}
+.section-title .hl { color:var(--pink); }
+
+/* ── ISI PRODUK ── */
+.toc-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+}
+.toc-card {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:14px; padding:24px;
+  display:flex; gap:16px; align-items:flex-start;
+  transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.toc-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.08); border-color:#bbb; }
+.toc-num {
+  font-family:'Bebas Neue',sans-serif; font-size:40px;
+  color:var(--pink); line-height:1; flex-shrink:0; width:40px;
+}
+.toc-info {}
+.toc-title { font-size:15px; font-weight:700; margin-bottom:4px; }
+.toc-desc { font-size:13px; color:var(--muted); line-height:1.5; }
+
+/* ── DATA TABLE ── */
+.data-section { background:var(--black); color:white; padding:80px 64px; }
+.data-section .section-title { color:white; }
+.data-table-wrap { overflow-x:auto; border-radius:12px; border:1px solid #222; }
+table { width:100%; border-collapse:collapse; }
+thead tr { background:var(--pink); }
+thead th { padding:14px 18px; text-align:left; font-size:11px; letter-spacing:1px; font-weight:700; text-transform:uppercase; }
+tbody tr { border-bottom:1px solid #1a1a1a; transition:background 0.15s; }
+tbody tr:nth-child(even) { background:#0d0d0d; }
+tbody tr:hover { background:#161616; }
+tbody td { padding:14px 18px; color:#ccc; font-size:14px; }
+.up { color:#00C8E0; font-weight:700; font-family:'DM Mono',monospace; }
+.key { color:white; font-weight:700; }
+
+/* ── STATS GRID ── */
+.stats-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px; margin-top:40px;
+}
+.stat-card {
+  background:#1a1a1a; border:1px solid #2a2a2a;
+  border-radius:12px; padding:24px; text-align:center;
+}
+.stat-val {
+  font-family:'Bebas Neue',sans-serif; font-size:48px;
+  line-height:1; margin-bottom:4px;
+}
+.stat-lbl { font-size:12px; color:#666; letter-spacing:1px; }
+
+/* ── FOR WHO ── */
+.who-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.who-card {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:14px; padding:24px;
+  border-top:4px solid var(--pink);
+  transition:transform 0.2s;
+}
+.who-card:hover { transform:translateY(-3px); }
+.who-icon { font-size:28px; margin-bottom:12px; }
+.who-title { font-size:15px; font-weight:700; margin-bottom:6px; }
+.who-desc { font-size:13px; color:var(--muted); line-height:1.5; }
+
+/* ── WHAT YOU GET ── */
+.get-list { display:flex; flex-direction:column; gap:12px; max-width:640px; }
+.get-item {
+  display:flex; align-items:flex-start; gap:16px;
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:12px; padding:18px 20px;
+}
+.get-check {
+  width:24px; height:24px; border-radius:6px;
+  background:var(--pink); display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; color:white; font-size:13px; font-weight:700;
+  margin-top:1px;
+}
+.get-text { font-size:14px; line-height:1.5; }
+.get-text b { font-weight:700; }
+
+/* ── CTA SECTION ── */
+.cta-section {
+  background:var(--black); padding:80px 64px;
+  text-align:center; position:relative; overflow:hidden;
+}
+.cta-section::before {
+  content:''; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.cta-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,7vw,88px); color:white;
+  line-height:0.95; margin-bottom:16px; position:relative;
+}
+.cta-title .hl { color:var(--pink); }
+.cta-sub { font-size:16px; color:#666; margin-bottom:40px; position:relative; }
+.cta-price-big {
+  font-family:'Bebas Neue',sans-serif; font-size:72px;
+  color:var(--pink); line-height:1; margin-bottom:8px; position:relative;
+}
+.cta-price-note { font-size:14px; color:#555; margin-bottom:32px; position:relative; }
+.btn-buy-big {
+  display:inline-block; background:var(--pink); color:white;
+  font-family:'DM Sans',sans-serif; font-size:18px; font-weight:700;
+  padding:22px 64px; border-radius:10px; text-decoration:none;
+  transition:transform 0.15s, box-shadow 0.15s; position:relative;
+  letter-spacing:0.3px;
+}
+.btn-buy-big:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(255,45,107,0.4); }
+.cta-trust { display:flex; gap:24px; justify-content:center; margin-top:32px; flex-wrap:wrap; position:relative; }
+.trust-item { font-size:13px; color:#555; display:flex; align-items:center; gap:8px; }
+.trust-dot { width:6px; height:6px; border-radius:50%; background:var(--pink); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--black); border-top:1px solid #1a1a1a;
+  padding:32px 64px; display:flex; align-items:center; justify-content:space-between;
+}
+.footer-logo { font-family:'Bebas Neue',sans-serif; font-size:22px; color:white; }
+.footer-logo span { color:var(--pink); }
+.footer-copy { font-size:12px; color:#444; }
+
+/* ── ANIMATE ON SCROLL ── */
+.anim { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.anim.visible { opacity:1; transform:none; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero { grid-template-columns:1fr; }
+  .hero-right { clip-path:none; min-height:460px; }
+  .hero-left { padding:48px 24px; }
+  .section, .data-section, .cta-section { padding:60px 24px; }
+  nav { padding:16px 24px; }
+  footer { padding:24px; flex-direction:column; gap:12px; text-align:center; }
+  .sf1,.sf2,.sf3 { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP TICKER -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="tb-item">PANDUAN BACA LK SAHAM</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">STUDI KASUS BBCA 2024</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">7 BAB LENGKAP</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">PIXEL MART</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">RP 15.000</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">CHECKLIST PRAKTIS</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">PANDUAN BACA LK SAHAM</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">STUDI KASUS BBCA 2024</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">7 BAB LENGKAP</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">PIXEL MART</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">RP 15.000</span><span class="tb-sep"> ◆ </span>
+    <span class="tb-item">CHECKLIST PRAKTIS</span><span class="tb-sep"> ◆ </span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">PIXEL<span>MART</span></div>
+  <a href="https://trakteer.id/pixelmart" class="nav-cta" target="_blank">Beli Sekarang →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><div class="hero-tag-dot"></div>Edisi 2025 · Data Nyata</div>
+    <h1 class="hero-title">Panduan<br>Baca <span class="hl">Laporan</span><br>Keuangan</h1>
+    <p class="hero-sub">Dari nol sampai bisa analisis saham sendiri. Lengkap dengan studi kasus nyata BBCA 2022–2024 — data, rasio, dan interpretasinya.</p>
+    <div class="hero-badges">
+      <div class="badge"><div class="badge-dot" style="background:var(--pink)"></div>7 Bab Lengkap</div>
+      <div class="badge"><div class="badge-dot" style="background:var(--cyan)"></div>Studi Kasus BBCA</div>
+      <div class="badge"><div class="badge-dot" style="background:var(--yellow)"></div>20+ Halaman</div>
+      <div class="badge"><div class="badge-dot" style="background:var(--pink)"></div>Checklist Praktis</div>
+    </div>
+    <div class="hero-price-row">
+      <div class="price-main">Rp 15.000</div>
+      <div class="price-note">Sekali bayar<br>Download selamanya</div>
+    </div>
+    <a href="https://trakteer.id/pixelmart" class="btn-buy" target="_blank">Beli & Download Sekarang →</a>
+  </div>
+
+  <div class="hero-right">
+    <!-- Floating stats -->
+    <div class="stat-float sf1">
+      <div class="sf-val" style="color:var(--pink)">Rp 54,8T</div>
+      <div class="sf-lbl">LABA BBCA 2024</div>
+    </div>
+    <div class="stat-float sf2">
+      <div class="sf-val" style="color:var(--cyan)">21,4%</div>
+      <div class="sf-lbl">ROE BBCA</div>
+    </div>
+    <div class="stat-float sf3">
+      <div class="sf-val" style="color:var(--yellow)">1,8%</div>
+      <div class="sf-lbl">NPL BBCA</div>
+    </div>
+
+    <!-- Book mockup -->
+    <div class="book-mockup">
+      <div class="book-header">
+        <div class="book-brand">PIXEL MART</div>
+        <div class="book-pages">20+ halaman · PDF</div>
+      </div>
+      <div class="book-body">
+        <div class="book-title-sm">Panduan<br><span>Baca LK</span><br>Saham</div>
+        <div class="book-divider"></div>
+        <div class="book-lines">
+          <div class="book-line" style="width:90%"></div>
+          <div class="book-line" style="width:75%"></div>
+          <div class="book-line" style="width:85%"></div>
+        </div>
+        <div class="book-mini-table">
+          <div class="bmt-head">BBCA 2022–2024</div>
+          <div class="bmt-row"><span>Laba Bersih</span><span class="bmt-val">↑ Rp 54,8T</span></div>
+          <div class="bmt-row"><span>ROE</span><span class="bmt-val">21,4%</span></div>
+          <div class="bmt-row"><span>NPL</span><span class="bmt-val">1,8%</span></div>
+          <div class="bmt-row"><span>Total Aset</span><span class="bmt-val">Rp 1.449T</span></div>
+        </div>
+        <div class="book-tag">Studi Kasus Nyata</div>
+      </div>
+      <div class="book-footer">pixelmart.trakteer.id</div>
+    </div>
+  </div>
+</div>
+
+<!-- ISI PRODUK -->
+<div class="section">
+  <div class="section-label anim">Isi Produk</div>
+  <div class="section-title anim">7 Bab yang <span class="hl">Mengubah</span><br>Cara Kamu Analisis Saham</div>
+  <div class="toc-grid">
+    <div class="toc-card anim">
+      <div class="toc-num">01</div>
+      <div class="toc-info">
+        <div class="toc-title">Mengenal Laporan Keuangan</div>
+        <div class="toc-desc">Komponen utama LK, di mana menemukannya, dan kapan harus dibaca.</div>
+      </div>
+    </div>
+    <div class="toc-card anim">
+      <div class="toc-num">02</div>
+      <div class="toc-info">
+        <div class="toc-title">Laporan Laba Rugi</div>
+        <div class="toc-desc">Cara baca income statement, rumus GPM & NPM, dan waspada laba semu.</div>
+      </div>
+    </div>
+    <div class="toc-card anim">
+      <div class="toc-num">03</div>
+      <div class="toc-info">
+        <div class="toc-title">Neraca Keuangan</div>
+        <div class="toc-desc">Aset, liabilitas, ekuitas — dan red flag yang sering diabaikan investor.</div>
+      </div>
+    </div>
+    <div class="toc-card anim">
+      <div class="toc-num">04</div>
+      <div class="toc-info">
+        <div class="toc-title">Laporan Arus Kas</div>
+        <div class="toc-desc">CFO, CFI, CFF, dan cara menghitung Free Cash Flow dengan benar.</div>
+      </div>
+    </div>
+    <div class="toc-card anim">
+      <div class="toc-num">05</div>
+      <div class="toc-info">
+        <div class="toc-title">Rasio Keuangan Penting</div>
+        <div class="toc-desc">PER, PBV, ROE, ROA, NIM, NPL, BOPO — lengkap dengan benchmark-nya.</div>
+      </div>
+    </div>
+    <div class="toc-card anim">
+      <div class="toc-num">06</div>
+      <div class="toc-info">
+        <div class="toc-title">Studi Kasus BBCA Nyata</div>
+        <div class="toc-desc">Analisis lengkap laporan keuangan BCA 2022–2024 dengan data resmi.</div>
+      </div>
+    </div>
+    <div class="toc-card anim">
+      <div class="toc-num">07</div>
+      <div class="toc-info">
+        <div class="toc-title">Checklist Praktis</div>
+        <div class="toc-desc">Template siap pakai sebelum beli saham — termasuk poin khusus perbankan.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DATA BBCA -->
+<div class="data-section">
+  <div class="section-label anim" style="color:var(--pink)">Data Nyata di Dalam Ebook</div>
+  <div class="section-title anim">Kinerja <span class="hl">BBCA</span><br>2022–2024</div>
+
+  <div class="data-table-wrap anim">
+    <table>
+      <thead>
+        <tr>
+          <th>Metrik</th><th>2022</th><th>2023</th><th>2024</th><th>Tren</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="key">Laba Bersih</td><td>Rp 40,7 T</td><td>Rp 48,6 T</td><td>Rp 54,8 T</td><td class="up">↑ +12,7%</td></tr>
+        <tr><td class="key">Total Aset</td><td>Rp 1.261 T</td><td>Rp 1.408 T</td><td>Rp 1.449 T</td><td class="up">↑ Stabil</td></tr>
+        <tr><td class="key">Kredit Disalurkan</td><td>Rp 713 T</td><td>Rp 810 T</td><td>Rp 922 T</td><td class="up">↑ +13,8%</td></tr>
+        <tr><td class="key">ROE</td><td>21,7%</td><td>22,0%</td><td>21,4%</td><td class="up">Konsisten</td></tr>
+        <tr><td class="key">NPL Gross</td><td>1,7%</td><td>1,9%</td><td>1,8%</td><td class="up">Terjaga</td></tr>
+        <tr><td class="key">NIM</td><td>5,3%</td><td>5,9%</td><td>5,8%</td><td class="up">Solid</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card anim">
+      <div class="stat-val" style="color:var(--pink)">Rp 54,8T</div>
+      <div class="stat-lbl">LABA BERSIH 2024</div>
+    </div>
+    <div class="stat-card anim">
+      <div class="stat-val" style="color:var(--cyan)">21,4%</div>
+      <div class="stat-lbl">ROE — 2X RATA-RATA INDUSTRI</div>
+    </div>
+    <div class="stat-card anim">
+      <div class="stat-val" style="color:var(--yellow)">1,8%</div>
+      <div class="stat-lbl">NPL — SANGAT TERJAGA</div>
+    </div>
+    <div class="stat-card anim">
+      <div class="stat-val" style="color:var(--pink)">44%</div>
+      <div class="stat-lbl">BOPO — SANGAT EFISIEN</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOR WHO -->
+<div class="section" style="background:var(--white)">
+  <div class="section-label anim">Untuk Siapa?</div>
+  <div class="section-title anim">Cocok Untuk <span class="hl">Kamu</span> Yang...</div>
+  <div class="who-grid">
+    <div class="who-card anim">
+      <div class="who-icon">🌱</div>
+      <div class="who-title">Investor Pemula</div>
+      <div class="who-desc">Baru mulai belajar saham dan ingin punya fondasi analisis yang kuat sebelum beli saham pertama.</div>
+    </div>
+    <div class="who-card anim">
+      <div class="who-icon">📈</div>
+      <div class="who-title">Investor Aktif</div>
+      <div class="who-desc">Sudah beli saham tapi masih asal ikut rekomendasi orang lain, ingin mulai analisis sendiri.</div>
+    </div>
+    <div class="who-card anim">
+      <div class="who-icon">🏦</div>
+      <div class="who-title">Peminat Saham Bank</div>
+      <div class="who-desc">Tertarik sektor perbankan tapi bingung cara baca rasio NPL, CAR, NIM, dan BOPO.</div>
+    </div>
+    <div class="who-card anim">
+      <div class="who-icon">🎓</div>
+      <div class="who-title">Mahasiswa / Fresh Grad</div>
+      <div class="who-desc">Butuh pemahaman laporan keuangan untuk tugas, skripsi, atau persiapan karier di industri keuangan.</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="section">
+  <div class="section-label anim">Yang Kamu Dapat</div>
+  <div class="section-title anim">Semua yang <span class="hl">Kamu Butuhkan</span><br>dalam 1 File</div>
+  <div class="get-list">
+    <div class="get-item anim">
+      <div class="get-check">✓</div>
+      <div class="get-text"><b>PDF 20+ halaman</b> — download selamanya, bisa dibuka di HP, tablet, atau PC tanpa perlu internet.</div>
+    </div>
+    <div class="get-item anim">
+      <div class="get-check">✓</div>
+      <div class="get-text"><b>Data laporan keuangan BBCA 2022–2024</b> — data nyata dari laporan resmi, bukan data karangan.</div>
+    </div>
+    <div class="get-item anim">
+      <div class="get-check">✓</div>
+      <div class="get-text"><b>Tabel rasio lengkap</b> — PER, PBV, ROE, ROA, NIM, NPL, BOPO, CAR beserta benchmark-nya.</div>
+    </div>
+    <div class="get-item anim">
+      <div class="get-check">✓</div>
+      <div class="get-text"><b>Checklist siap pakai</b> — 16 pertanyaan yang harus dijawab sebelum beli saham apapun.</div>
+    </div>
+    <div class="get-item anim">
+      <div class="get-check">✓</div>
+      <div class="get-text"><b>Formula lengkap</b> — semua rumus penting dengan contoh angka nyata, bukan teori abstrak.</div>
+    </div>
+    <div class="get-item anim">
+      <div class="get-check">✓</div>
+      <div class="get-text"><b>Gratis update</b> — kalau ada pembaruan konten, pembeli lama mendapat versi terbaru tanpa biaya tambahan.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-title anim">Mulai Analisis<br><span class="hl">Saham Sendiri</span><br>Hari Ini</div>
+  <div class="cta-sub anim">Harga segelas kopi — manfaatnya seumur hidup investasi.</div>
+  <div class="cta-price-big anim">Rp 15.000</div>
+  <div class="cta-price-note anim">Sekali bayar · Download langsung · Akses selamanya</div>
+  <a href="https://trakteer.id/pixelmart" class="btn-buy-big anim" target="_blank">Beli & Download Sekarang →</a>
+  <div class="cta-trust anim">
+    <div class="trust-item"><div class="trust-dot"></div>File PDF langsung dikirim</div>
+    <div class="trust-item"><div class="trust-dot"></div>Pembayaran aman via Trakteer</div>
+    <div class="trust-item"><div class="trust-dot"></div>Data dari sumber resmi BCA</div>
+    <div class="trust-item"><div class="trust-dot"></div>Gratis update selamanya</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PIXEL<span>MART</span></div>
+  <div class="footer-copy">© 2025 Pixel Mart · trakteer.id/pixelmart</div>
+</footer>
+
+<script>
+// Animate on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting) {
+      const siblings = e.target.parentElement.querySelectorAll('.anim');
+      let delay = 0;
+      siblings.forEach((s, idx) => {
+        if(s === e.target) delay = idx * 80;
+      });
+      setTimeout(() => e.target.classList.add('visible'), delay);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+// Ticker scroll
+const ti = document.querySelector('.topbar-inner');
+let tx = 0;
+const tw = ti.scrollWidth / 2;
+(function tick() {
+  requestAnimationFrame(tick);
+  tx -= 1.5;
+  if(tx <= -tw) tx = 0;
+  ti.style.transform = `translateX(${tx}px)`;
+})();
+</script>
+</body>
+</html>
